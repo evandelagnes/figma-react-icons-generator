@@ -15,6 +15,9 @@ export const SVGToReactComponent = (svgs: SVGElement[]): SVGElement[] => {
       {
         plugins: ['@svgr/plugin-svgo', '@svgr/plugin-jsx', '@svgr/plugin-prettier'],
         icon: true,
+        replaceAttrValues: {
+          '#000': '{props.fill}',
+        },
       },
       { componentName: item.name },
     );
