@@ -5,7 +5,7 @@
 $ npm install figma-react-icons-generator
 ```
 OR
-```
+```bash
 $ yarn add figma-react-icons-generator
 ```
 
@@ -27,3 +27,19 @@ https://www.figma.com/file/UdgrZIihTO3DoiYFYcCg6R/xxx
 The file id is `UdgrZIihTO3DoiYFYcCg6R`.
 
 - Add in your package.json `icons` script with `figma-react-icons-generator -t <FIGMA_TOKEN> -f <FIGMA_FILE> -c <FIGMA_CANVA> -o <OUTPUT_FOLDER>`
+
+```
+  "scripts": {
+    "icons": "figma-react-icons-generator -t <FIGMA_TOKEN> -f <FIGMA_FILE> -c <FIGMA_CANVA> -o <OUTPUT_FOLDER>",
+  },
+```
+
+- Then you only have to run this command
+
+```bash
+$ npm run icons
+```
+OR
+```bash
+$ yarn icons
+```
