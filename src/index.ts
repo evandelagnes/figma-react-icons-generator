@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import yargs from 'yargs-parser';
 import { getSvg } from './exporter';
 import { SVGToReactComponent } from './convert';

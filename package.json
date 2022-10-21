@@ -1,9 +1,10 @@
 {
   "name": "figma-react-icons-generator",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "bin": "./dist/index.js",
   "scripts": {
     "test": "jest --config jestconfig.json",
     "dev": "tsc -w",
