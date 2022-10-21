@@ -2,11 +2,11 @@
 
 ## Install
 ```bash
-$ npm install figma-react-icons-generator
+$ npm install --save-dev figma-react-icons-generator
 ```
 OR
 ```bash
-$ yarn add figma-react-icons-generator
+$ yarn add --dev figma-react-icons-generator
 ```
 
 ## Prerequisites
