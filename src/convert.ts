@@ -9,7 +9,7 @@ interface SVGElement {
 }
 
 export const SVGToReactComponent = (svgs: SVGElement[]): SVGElement[] => {
-  return <SVGElement[]>svgs.map((item) => {
+  return svgs.map((item) => {
     const code = transform.sync(
       item.data,
       {

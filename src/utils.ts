@@ -1,6 +1,6 @@
-const fs = require('fs-extra');
-const path = require('path');
-const { EOL } = require('os');
+import fs from 'fs-extra';
+import path from 'path';
+import { EOL } from 'os';
 
 interface IndexConfigProps {
   componentsFolder: string;

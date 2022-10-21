@@ -1,4 +1,4 @@
-const yargs = require('yargs-parser')(process.argv.slice(2));
+import yargs from 'yargs-parser';
 import { getSvg } from './exporter';
 import { SVGToReactComponent } from './convert';
 import { createIndex, saveComponents } from './utils';
@@ -10,19 +10,17 @@ interface Config {
   figmaCanva: string;
 }
 
+const args = yargs(process.argv.slice(2));
 const parser = () => {
   const config: Config = {
-    output: yargs.o || yargs.output,
-    figmaToken: yargs.t || yargs.token,
-    figmaFile: yargs.f || yargs.file,
-    figmaCanva: yargs.c || yargs.canva,
+    output: args.o || args.output,
+    figmaToken: args.t || args.token,
+    figmaFile: args.f || args.file,
+    figmaCanva: args.c || args.canva,
   };
   let property: keyof typeof config;
   for (property in config) {
-    if (typeof config[property] === 'undefined') {
-      console.error('error: bad arguments.');
-      process.exit(1);
-    }
+    if (typeof config[property] === 'undefined') process.exit(1);
   }
   run(config);
 };

@@ -1,5 +1,5 @@
-const figmaApiExporter = require('figma-api-exporter').default;
-const axios = require('axios');
+import { default as figmaApiExporter } from 'figma-api-exporter';
+import axios from 'axios';
 
 interface SVGOption {
   strokeWidth?: number;
@@ -29,7 +29,6 @@ export const getSvg = async (figmaToken: string, figmaFile: string, figmaCanva: 
     });
     return svgs;
   } catch (err: unknown) {
-    console.error(err);
     process.exit(1);
   }
 };
@@ -41,10 +40,10 @@ const getSvgElement = async <T extends {}>(
   return Promise.all(
     data.map(async (item) => {
       try {
-        const { data } = await axios.get(item.url);
+        const response = await axios.get(item.url);
         return {
           ...item,
-          data: data
+          data: response.data
             .replaceAll(/stroke="#[a-fA-F0-9]{6}"/g, `stroke="${options.strokeColor}"`)
             .replaceAll(/fill="#[a-fA-F0-9]{6}"/g, `fill="${options.fillColor}"`)
             .replaceAll(/stroke-width="[0-9]{1,2}\.[0-9]{1,2}"/g, `stroke-width="${options.strokeWidth?.toString()}"`),
